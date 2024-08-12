@@ -1,6 +1,8 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 
 :root {
+  --E100: 800 100px / normal Pretendard;
+  --E80: 800 80px / normal Pretendard;
   --E30: 800 30px / normal Pretendard;
   --E40: 800 40px / normal Pretendard;
   --E35: 800 35px / normal Pretendard;
@@ -9,6 +11,7 @@
   --B25: 700 25px / normal Pretendard;
   --S30: 600 30px / normal Pretendard;
   --M30: 500 30px / normal Pretendard;
+  --M20: 500 20px / normal Pretendard;
   --M32: 500 32px / normal Pretendard;
   --E20: 800 20px / normal Pretendard;
   --E23: 800 23px / normal Pretendard;
