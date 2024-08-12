@@ -3,6 +3,7 @@
 :root {
   --E100: 800 100px / normal Pretendard;
   --E80: 800 80px / normal Pretendard;
+  --E25: 800 25px / normal Pretendard;
   --E30: 800 30px / normal Pretendard;
   --E40: 800 40px / normal Pretendard;
   --E35: 800 35px / normal Pretendard;
@@ -10,6 +11,7 @@
   --S23: 600 23px / normal Pretendard;
   --B25: 700 25px / normal Pretendard;
   --S30: 600 30px / normal Pretendard;
+  --M25: 500 25px / normal Pretendard;
   --M30: 500 30px / normal Pretendard;
   --M35: 500 35px / normal Pretendard;
   --M20: 500 20px / normal Pretendard;
@@ -17,6 +19,7 @@
   --E20: 800 20px / normal Pretendard;
   --E23: 800 23px / normal Pretendard;
   --S32: 600 32px / normal Pretendard;
+  --E20: 800 20px / normal Pretendard;
 }
 
 html,

@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import Layout from './components/layout/Layout';
 import LearningPage from './pages/LearningPage';
@@ -10,6 +10,8 @@ import LearningNewDetailPage from './pages/LearningNewDetailPage';
 import LearningMyPage from './pages/LearningMyPage';
 import LearningMyDetailPage from './pages/LearningMyDetailPage';
 import LoginPage from './pages/LoginPage';
+import CommunityDetailPage from './pages/CommunityDetailPage';
+import CommunityWritePage from './pages/CommunityWritePage';
 
 const Router = () => {
   // const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
@@ -32,6 +34,8 @@ const Router = () => {
           <Route path="/learning/my/:id" element={<LearningMyDetailPage />} />
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/community" element={<CommunityPage />} />
+          <Route path="/community/:id" element={<CommunityDetailPage />} />
+          <Route path="/community/write" element={<CommunityWritePage />} />
           <Route path="/todolist" element={<TodolistPage />} />
         </Route>
       </Routes>
