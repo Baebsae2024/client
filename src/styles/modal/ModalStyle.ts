@@ -25,3 +25,8 @@ export const Container = styled.div`
     margin-bottom: 30px;
   }
 `;
+
+export const BtnWrap = styled.div`
+  display: flex;
+  gap: 19px;
+`;

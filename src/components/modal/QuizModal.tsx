@@ -1,4 +1,4 @@
-import * as S from '@/styles/modal/QuizModalStyle';
+import * as S from '@/styles/modal/ModalStyle';
 import DarkButton from '../button/DarkButton';
 
 const QuizModal = ({ onClick }: { onClick: () => void }) => {
