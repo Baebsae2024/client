@@ -1,11 +1,15 @@
+import BackDrop from '@/components/layout/BackDrop';
 import CommunityItem from '@/components/main/CommunityItem';
 import HeadItem from '@/components/main/HeadItem';
+import TodolistModal from '@/components/modal/TodolistModal';
 import TodolistItem from '@/components/todolist/TodolistItem';
 import * as S from '@/styles/main/MainPageStyle';
-//import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isModal, setIsModal] = useState(false);
   const dummyData = [
     {
       id: 1,
@@ -26,37 +30,53 @@ const MainPage = () => {
   ];
 
   return (
-    <S.Container>
-      <S.SwipeWrap>
-        <S.LeftWrap>
-          {/* 스와이프 수정 예정 */}
-          <h1>지하철에서 이런짓을 하면 민폐?</h1>
-          <div>자세히 보기</div>
-        </S.LeftWrap>
-        <S.RightWrap></S.RightWrap>
-      </S.SwipeWrap>
-      <HeadItem
-        title="커뮤니티"
-        description="당신과 마음에 맞는 친구를 만나보세요!"
-      />
-      <S.CommunityWrap>
-        {dummyData.map((data, index) => {
-          return (
-            <CommunityItem
-              key={index}
-              title={data.title}
-              heartLength={data.heartLength}
+    <>
+      <S.Container>
+        <S.SwipeWrap>
+          <S.LeftWrap>
+            {/* 스와이프 수정 예정 */}
+            <h1>지하철에서 이런짓을 하면 민폐?</h1>
+            <div>자세히 보기</div>
+          </S.LeftWrap>
+          <S.RightWrap></S.RightWrap>
+        </S.SwipeWrap>
+        <HeadItem
+          title="커뮤니티"
+          description="당신과 마음에 맞는 친구를 만나보세요!"
+        />
+        <S.CommunityWrap>
+          {dummyData.map((data, index) => {
+            return (
+              <CommunityItem
+                key={index}
+                title={data.title}
+                heartLength={data.heartLength}
+              />
+            );
+          })}
+        </S.CommunityWrap>
+        <hr />
+        <HeadItem
+          title="투두리스트"
+          description="꾸준히 하면 좋은 일이 생길지도..?"
+        />
+        <TodolistItem setIsModal={setIsModal} />
+      </S.Container>
+      {isModal && (
+        <BackDrop
+          children={
+            <TodolistModal
+              onClick={() => {
+                setIsModal(false);
+                navigate('/community/write');
+              }}
+              onCancel={() => setIsModal(false)}
             />
-          );
-        })}
-      </S.CommunityWrap>
-      <hr />
-      <HeadItem
-        title="투두리스트"
-        description="꾸준히 하면 좋은 일이 생길지도..?"
-      />
-      <TodolistItem />
-    </S.Container>
+          }
+          isOpen={isModal}
+        />
+      )}
+    </>
   );
 };
 

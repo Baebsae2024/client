@@ -9,6 +9,7 @@ import LearningNewPage from './pages/LearningNewPage';
 import LearningNewDetailPage from './pages/LearningNewDetailPage';
 import LearningMyPage from './pages/LearningMyPage';
 import LearningMyDetailPage from './pages/LearningMyDetailPage';
+import LoginPage from './pages/LoginPage';
 
 const Router = () => {
   // const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
@@ -23,6 +24,7 @@ const Router = () => {
         <Route element={<Layout />}>
           {/* <Route path="/" element={<ProtectedRoute element={<MainPage />} />} />*/}
           <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/learning" element={<LearningPage />} />
           <Route path="/learning/new" element={<LearningNewPage />} />
           <Route path="/learning/new/:id" element={<LearningNewDetailPage />} />
