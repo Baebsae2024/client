@@ -15,15 +15,20 @@
 }
 
 :root {
+  --M14: 500 14px / normal GmarketSansMedium;
   --M15: 500 15px / normal GmarketSansMedium;
+  --M18: 500 18px / normal GmarketSansMedium;
   --M20: 500 20px / normal GmarketSansMedium;
   --M22-22: 500 22px / 22px GmarketSansMedium;
   --M26-50: 500 26px / 50px GmarketSansMedium;
   --M28: 500 28px / normal GmarketSansMedium;
+  --M28-42: 500 28px / 42px GmarketSansMedium;
   --M32: 500 32px / normal GmarketSansMedium;
+  --B18: 700 18px / normal GmarketSansBold;
   --B20: 700 20px / normal GmarketSansBold;
   --B22: 700 22px / normal GmarketSansBold;
   --B28: 700 28px / normal GmarketSansBold;
+  --B32: 600 32px / normal GmarketSansBold;
   --B35: 700 35px / normal GmarketSansBold;
   --B25-40: 600 25px / 40px GmarketSansMedium;
   --M32-600: 600 32px / normal GmarketSansMedium;

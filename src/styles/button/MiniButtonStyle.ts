@@ -8,9 +8,8 @@ export const Button = styled.button`
   color: #69b0b5;
   border: 3px solid #69b0b5;
   background-color: #fff;
-  padding: 7px 16px 3px;
+  padding: 6px 16px 4px;
   box-shadow: 0px 0px 10px rgba(192, 224, 226, 0.3);
-  transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: #69b0b5;
@@ -19,9 +18,13 @@ export const Button = styled.button`
 
   &:disabled {
     background-color: #d8d8d8;
+    border: 3px solid #d8d8d8;
+    color: #fff;
   }
 
   &:disabled:hover {
     background-color: #d8d8d8;
+    border: 3px solid #d8d8d8;
+    color: #fff;
   }
 `;
