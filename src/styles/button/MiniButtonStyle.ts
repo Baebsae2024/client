@@ -6,10 +6,10 @@ export const Button = styled.button`
   justify-content: center;
   font: var(--M20);
   color: #69b0b5;
-  border: 2.5px solid #69b0b5;
+  border: 3px solid #69b0b5;
   background-color: #fff;
-  padding: 9px 16px;
-  box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
+  padding: 7px 16px 3px;
+  box-shadow: 0px 0px 10px rgba(192, 224, 226, 0.3);
   transition: all 0.3s ease-in-out;
 
   &:hover {

@@ -22,6 +22,7 @@ export const NavLinks = styled(NavLink)`
   font: var(--M22-22);
   color: #000;
   transition: all 0.3s ease-in-out;
+  margin-top: 10px;
 
   &.active {
     color: #619092;

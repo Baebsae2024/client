@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 78px;
   padding-bottom: 115px;
 
@@ -10,32 +12,24 @@ export const Container = styled.div`
     text-align: center;
     font: var(--B35);
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
-`;
 
-export const SelectedNav = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5px;
-
-  > span {
+  > p {
     font: var(--M28);
     color: #000;
-    margin-top: 7px;
+    margin-bottom: 12px;
   }
 `;
 
-export const MenuText = styled.h3<{ selected: boolean }>`
-  font: var(--M28);
-  color: ${({ selected }) => (selected ? '#619092' : '#000')};
-  cursor: pointer;
-  margin: 0 14px;
+export const BtnWrap = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 1012px;
+  margin-bottom: 12px;
 `;
 
 export const TextBox = styled.div`
-  margin-top: 55px;
   border: 3px solid #c0e0e2;
   width: 1012px;
   box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
@@ -50,15 +44,15 @@ export const TextBox = styled.div`
 
   > p {
     font: var(--M26-50);
-    padding: 32px 0;
+    padding-top: 20px;
     color: #000;
   }
 
   > img {
     display: block;
-    margin: auto;
+    margin: 20px auto 0;
     height: 371px;
-    width: 100%;
+    width: 371px;
     background-color: #d9d9d9;
   }
 `;
