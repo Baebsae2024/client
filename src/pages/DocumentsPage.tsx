@@ -52,7 +52,7 @@ const DocumentsPage = () => {
   return (
     <>
       <S.Container>
-        <h1>주의사항</h1>
+        <h1>문서 확인</h1>
         <p>
           이미지를 첨부하면 AI가 문서를 분석해
           <br />
