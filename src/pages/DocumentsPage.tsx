@@ -38,11 +38,9 @@ const DocumentsPage = () => {
   const handleImageAI = async () => {
     setIsModal(true);
     const response = await postImage({ image: imageFile });
-    if (response.message) {
+    if (response) {
       setIsModal(false);
-      //수정 필요
-      setResult(`# 안녕하세요!
-  저는 현재 리액트에서 \`react-markdown\`를 이용하여 **마크다운**을 랜더링하고 있습니다.`);
+      setResult(response.content);
     }
   };
 
