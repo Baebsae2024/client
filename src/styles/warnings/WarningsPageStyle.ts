@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding-top: 78px;
   padding-bottom: 115px;
@@ -19,7 +18,18 @@ export const Container = styled.div`
   > p {
     font: var(--M28);
     color: #000;
-    margin-bottom: 65px;
+    margin-bottom: 12px;
+  }
+`;
+
+export const BtnWrap = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 1037px;
+  margin-bottom: 12px;
+
+  ${isMobileOrTablet} {
+    width: 600px;
   }
 `;
 
