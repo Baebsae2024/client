@@ -1,41 +1,18 @@
 import MiniButton from '@/components/button/MiniButton';
 import * as S from '@/styles/warnings/WarningDetailPageStyle';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LongLine from '@assets/icons/LongLine.svg?react';
-import { useParams } from 'react-router-dom';
+import { warningState } from '@/recoils/recoil';
+import { useRecoilValue } from 'recoil';
 
 const WarningDetailPage = () => {
   const navigate = useNavigate();
-  const params = useParams();
+  const data = useRecoilValue(warningState);
 
-  console.log(params.id);
-
-  const [data, setData] = useState({
-    image: '',
-    title: '',
-    content: '',
-  });
-
-  useEffect(() => {
-    // const fetchInformation = async () => {
-    //   console.log(params.id);
-    //   const response = await getGovern({
-    //     id: params.id,
-    //   });
-    //   if (response) {
-    //     setData(response);
-    //   }
-    // };
-    // fetchInformation();
-
-    setData({
-      image: '',
-      title: '무섭다 무서워 ㄷㄷㄷㄷ 귀신이 나왔어~',
-      content:
-        '지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지s지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?',
-    });
-  }, []);
+  if (!data) {
+    navigate('/warnings');
+    return null;
+  }
 
   return (
     <S.Container>

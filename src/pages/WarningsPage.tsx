@@ -1,70 +1,30 @@
+import { getCaution } from '@/apis/getCaution';
 import MiniButton from '@/components/button/MiniButton';
 import BackDrop from '@/components/layout/BackDrop';
 import HelpModal from '@/components/modal/HelpModal';
 import WarningItem from '@/components/warnings/WarningItem';
+import { warningState } from '@/recoils/recoil';
 import * as S from '@/styles/warnings/WarningsPageStyle';
+import { WarningList } from '@/types/warning';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-type WarningList = {
-  id: number;
-  title: string;
-  image: string;
-};
-
-const dummyList = [
-  {
-    id: 1,
-    title: '무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 2,
-    title: '무섭다 무서워 ㄷㄷ무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 3,
-    title: '무섭다 무서워 ㄷㄷ무섭다 무서워 ㄷㄷ무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 4,
-    title: '무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 5,
-    title: '무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 6,
-    title: '무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-  {
-    id: 7,
-    title: '무섭다 무서워 ㄷㄷ',
-    image: '',
-  },
-];
+import { useSetRecoilState } from 'recoil';
 
 const WarningsPage = () => {
   const navigate = useNavigate();
+  const setWarningState = useSetRecoilState(warningState);
   const [list, setList] = useState<WarningList[]>([]);
   const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
-    // const fetchInformation = async () => {
-    //   const response = await getGovern();
-    //   if (response) {
-    //     setList(dummyList);
-    //   }
-    // };
+    const fetchInformation = async () => {
+      const response = await getCaution();
+      if (response) {
+        setList(response);
+      }
+    };
 
-    // fetchInformation();
-    setList(dummyList);
+    fetchInformation();
   }, []);
 
   return (
@@ -86,7 +46,10 @@ const WarningsPage = () => {
                 key={index}
                 image={data.image}
                 title={data.title}
-                onClick={() => navigate(`/warnings/${data.id}`)}
+                onClick={() => {
+                  setWarningState(data);
+                  navigate(`/warnings/${data._id}`);
+                }}
               />
             );
           })}
