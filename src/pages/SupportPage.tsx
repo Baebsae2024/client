@@ -1,3 +1,4 @@
+import { postSupport } from '@/apis/postSupport';
 import MiniButton from '@/components/button/MiniButton';
 import * as S from '@/styles/support/SupportPageStyle';
 import BigLongLine from '@assets/icons/BigLongLine.svg?react';
@@ -51,22 +52,21 @@ const SupportPage = () => {
 
   const handleResult = async () => {
     const formData = {
-      age: age,
-      isForeigner: isForeigner,
-      job: job,
-      isMarried: isMarried,
-      haveChildren: haveChildren,
+      age,
+      isForeigner,
+      job,
+      isMarried,
+      haveChildren,
       numberOfChildren: haveChildren ? numberOfChildren : null,
       childrenAges: haveChildren ? childrenAges : null,
-      monthlyIncome: monthlyIncome,
-      isVeteran: isVeteran,
-      hasEmergency: hasEmergency,
-      hasHospitalization: hasHospitalization,
+      monthlyIncome,
+      isVeteran,
+      hasEmergency,
+      hasHospitalization,
     };
 
-    console.log(JSON.stringify(formData));
-
-    //const response = await postSupport(formData);
+    const response = await postSupport(formData);
+    console.log(response);
     navigate('/support/result');
   };
 
