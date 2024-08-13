@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import BackDrop from '@/components/layout/BackDrop';
 import { HashLoader } from 'react-spinners';
 import { postImage } from '@/apis/postImage';
+import ReactMarkdown from 'react-markdown';
 
 const DocumentsPage = () => {
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -40,12 +41,8 @@ const DocumentsPage = () => {
     if (response.message) {
       setIsModal(false);
       //수정 필요
-      setResult(`지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런
-            행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-            이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-            이런 행동 민`);
+      setResult(`# 안녕하세요!
+  저는 현재 리액트에서 \`react-markdown\`를 이용하여 **마크다운**을 랜더링하고 있습니다.`);
     }
   };
 
@@ -117,7 +114,9 @@ const DocumentsPage = () => {
             <BigLongLine style={{ marginTop: 65, marginBottom: 65 }} />
             <div ref={resultWrapRef}>
               <S.ResultText>AI 분석 결과</S.ResultText>
-              <S.TextBox>{result}</S.TextBox>
+              <S.TextBox>
+                <ReactMarkdown>{result}</ReactMarkdown>
+              </S.TextBox>
             </div>
           </>
         )}

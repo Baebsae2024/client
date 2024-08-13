@@ -61,7 +61,7 @@ export const TextBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font: var(--M26-50);
+  font: var(--M23);
   padding: 34px;
   color: #000;
   white-space: pre-line;
