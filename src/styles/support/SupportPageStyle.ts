@@ -23,6 +23,7 @@ export const Container = styled.div`
     font: var(--M25);
     color: #000;
     margin-bottom: 16px;
+    margin-left: 20px;
   }
 
   > input {
@@ -32,6 +33,7 @@ export const Container = styled.div`
     border: 3px solid #c0e0e2;
     width: 482px;
     margin-bottom: 30px;
+    margin-left: 20px;
   }
 `;
 
@@ -40,6 +42,7 @@ export const RadioWrap = styled.div`
   gap: 24px;
   align-items: center;
   margin-bottom: 50px;
+  margin-left: 20px;
 
   > div {
     cursor: pointer;

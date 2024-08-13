@@ -11,7 +11,7 @@ export const Container = styled.div`
   transition: all 0.3s ease-in-out;
 
   ${isTablet} {
-    margin: 20px 30px 0 30px;
+    margin: 20px 40px 0 40px;
 
     > img {
       transition: all 0.3s ease-in-out;

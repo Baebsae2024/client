@@ -50,8 +50,23 @@ const SupportPage = () => {
   );
 
   const handleResult = async () => {
-    //const response = await postSupport();
-    console.log();
+    const formData = {
+      age: age,
+      isForeigner: isForeigner,
+      job: job,
+      isMarried: isMarried,
+      haveChildren: haveChildren,
+      numberOfChildren: haveChildren ? numberOfChildren : null,
+      childrenAges: haveChildren ? childrenAges : null,
+      monthlyIncome: monthlyIncome,
+      isVeteran: isVeteran,
+      hasEmergency: hasEmergency,
+      hasHospitalization: hasHospitalization,
+    };
+
+    console.log(JSON.stringify(formData));
+
+    //const response = await postSupport(formData);
     navigate('/support/result');
   };
 
@@ -67,7 +82,7 @@ const SupportPage = () => {
         placeholder="나이를 작성해주세요"
       />
       <QuestionRadio
-        question="Q2. 귀하는 내국인인가요? 외국인인가요?"
+        question="Q2. 내국인인가요? 외국인인가요?"
         selectedValue={isForeigner}
         setSelectedValue={setIsForeigner}
         options={[
@@ -115,14 +130,14 @@ const SupportPage = () => {
           />
         </>
       )}
-      <h2>Q8. 귀하의 월 소득은 어느 정도인가요?</h2>
+      <h2>{haveChildren ? 'Q8.' : 'Q6.'} 월 소득은 어느 정도인가요?</h2>
       <input
         value={monthlyIncome}
         onChange={event => setMonthlyIncome(event.target.value)}
         placeholder="월 소득을 작성해주세요"
       />
       <QuestionRadio
-        question="Q9. 유공자이신가요?"
+        question={`${haveChildren ? 'Q9.' : 'Q7.'} 유공자이신가요?`}
         selectedValue={isVeteran}
         setSelectedValue={setIsVeteran}
         options={[
@@ -131,7 +146,9 @@ const SupportPage = () => {
         ]}
       />
       <QuestionRadio
-        question="Q10. 최근에 긴급한 일이나 재난 사고를 겪으셨나요?"
+        question={`${
+          haveChildren ? 'Q10.' : 'Q8.'
+        } 최근에 긴급한 일이나 재난 사고를 겪으셨나요?`}
         selectedValue={hasEmergency}
         setSelectedValue={setHasEmergency}
         options={[
@@ -140,7 +157,9 @@ const SupportPage = () => {
         ]}
       />
       <QuestionRadio
-        question="Q11. 최근에 질병으로 입원하신 적이 있나요?"
+        question={`${
+          haveChildren ? 'Q11.' : 'Q9.'
+        } 최근에 질병으로 입원하신 적이 있나요?`}
         selectedValue={hasHospitalization}
         setSelectedValue={setHasHospitalization}
         options={[
