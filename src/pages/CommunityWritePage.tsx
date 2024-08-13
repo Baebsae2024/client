@@ -2,15 +2,19 @@ import * as S from '@styles/community/CommunityWritePageStyle';
 import CheckBoxClickIcon from '@assets/icons/CheckBoxClick.svg?react';
 import CheckBoxIcon from '@assets/icons/CheckBox.svg?react';
 import CameraIcon from '@assets/icons/Camera.svg?react';
+import Profile from '@assets/icons/Profile.svg?react';
 import { useRef, useState } from 'react';
+import Button from '@/components/button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const CommunityWritePage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [imageUrl, setImageUrl] = useState('');
   const [imageFile, setImageFile] = useState<File | null>();
-
-  console.log(imageFile);
+  const [titleText, setTitleText] = useState('');
+  const [contentText, setContentText] = useState('');
+  const navigate = useNavigate();
 
   const onAddPicture = () => {
     inputFileRef.current?.click();
@@ -30,11 +34,23 @@ const CommunityWritePage = () => {
     setImageUrl(imageUrl);
   };
 
+  //글 등록 함수
+  const handleWrite = () => {
+    console.log(titleText);
+    console.log(contentText);
+    if (imageFile) {
+      console.log(imageFile);
+    }
+
+    //성공하면 페이지이동
+    navigate('/community');
+  };
+
   return (
     <S.Container>
       <S.HeadWrap>
         <S.LeftWrap>
-          <img src="" alt="" />
+          <Profile />
           <h1>닉네임</h1>
         </S.LeftWrap>
         <S.RightWrap>
@@ -47,8 +63,20 @@ const CommunityWritePage = () => {
         </S.RightWrap>
       </S.HeadWrap>
       <S.TextWrap>
-        <input placeholder="제목을 입력해 주세요." />
-        <textarea placeholder="내용을 입력해 주세요." />
+        <input
+          placeholder="제목을 입력해 주세요."
+          minLength={1}
+          spellCheck={false}
+          value={titleText}
+          onChange={event => setTitleText(event.target.value)}
+        />
+        <textarea
+          placeholder="내용을 입력해 주세요."
+          minLength={1}
+          spellCheck={false}
+          value={contentText}
+          onChange={event => setContentText(event.target.value)}
+        />
       </S.TextWrap>
       <S.LastWrap>
         <S.ImgButton onClick={onAddPicture}>
@@ -63,7 +91,11 @@ const CommunityWritePage = () => {
           ref={inputFileRef}
           onChange={handleFileChange}
         />
-        <S.BtnWrap onClick={() => console.log('하')}>등록하기</S.BtnWrap>
+        <Button
+          idDisabled={!!titleText && !!contentText}
+          text="등록하기"
+          onClick={handleWrite}
+        />
       </S.LastWrap>
       <S.ImgWrap>
         <img src={imageUrl} alt="" />

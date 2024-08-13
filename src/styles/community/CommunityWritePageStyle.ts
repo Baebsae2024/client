@@ -12,7 +12,7 @@ export const HeadWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 `;
 
 export const LeftWrap = styled.div`
@@ -42,6 +42,7 @@ export const RightWrap = styled.div`
   > h2 {
     font: var(--E30);
     color: #69b0b5;
+    user-select: none;
   }
 `;
 
@@ -56,7 +57,12 @@ export const TextWrap = styled.div`
     font: var(--E35);
     border: none;
     box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
-    margin-bottom: 27px;
+    margin-bottom: 24px;
+    color: #364a4a;
+
+    &::placeholder {
+      color: #8dbaaf;
+    }
   }
 
   > textarea {
@@ -68,6 +74,12 @@ export const TextWrap = styled.div`
     box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
     margin-bottom: 24px;
     resize: none;
+    outline: none;
+    color: #364a4a;
+
+    &::placeholder {
+      color: #8dbaaf;
+    }
   }
 `;
 
@@ -88,21 +100,6 @@ export const ImgButton = styled.div`
   border-radius: 20px;
   color: #69b0b5;
   font: var(--E20);
-  cursor: pointer;
-`;
-
-export const BtnWrap = styled.div`
-  font: var(--E23);
-  color: #fff;
-  background-color: #69b0b5;
-  width: 154px;
-  height: 56px;
-  box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-
   cursor: pointer;
 `;
 

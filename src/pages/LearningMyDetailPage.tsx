@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import HeadItem from '@/components/main/HeadItem';
 import * as S from '@styles/learning/LearningAllDetailPageStyle';
 import { useNavigate } from 'react-router-dom';
@@ -7,8 +8,14 @@ const LearningMyDetailPage = () => {
 
   return (
     <S.Container>
-      <HeadItem title="새로운 Tip" description="새로운 지식을 학습하세요!" />
-      <S.BtnWrap onClick={() => navigate(-1)}>목록 보기</S.BtnWrap>
+      <HeadItem title="내가 배운 Tip" description="나는 이런걸 학습했어요!" />
+      <S.BtnWrap>
+        <Button
+          idDisabled={false}
+          text="목록 보기"
+          onClick={() => navigate(-1)}
+        />
+      </S.BtnWrap>
       <S.TitleWrap>지하철에서는 신발을 벗고 타야한다?</S.TitleWrap>
       <S.DescWrap>
         <div>

@@ -41,7 +41,7 @@ const LearningMyPage = () => {
 
   return (
     <S.Container>
-      <HeadItem title="새로운 Tip" description="새로운 지식을 학습하세요!" />
+      <HeadItem title="내가 배운 Tip" description="나는 이런걸 학습했어요!" />
       <S.ItemWrap>
         {dummyList.map((data, index) => {
           return (
@@ -49,7 +49,7 @@ const LearningMyPage = () => {
               key={index}
               image={data.image}
               title={data.title}
-              onClick={() => navigate(`/learning/new/${data.id}`)}
+              onClick={() => navigate(`/learning/my/${data.id}`)}
             />
           );
         })}

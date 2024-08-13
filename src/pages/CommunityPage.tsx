@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import CommunityItem from '@/components/community/CommunityItem';
 import HeadItem from '@/components/main/HeadItem';
 import * as S from '@styles/community/CommunityPageStyle';
@@ -45,7 +46,13 @@ const CommunityPage = () => {
         title="커뮤니티"
         description="당신과 마음이 맞는 친구를 만나보세요!"
       />
-      <S.BtnWrap onClick={() => navigate('/community/write')}>글쓰기</S.BtnWrap>
+      <S.BtnWrap>
+        <Button
+          idDisabled={false}
+          text="글쓰기"
+          onClick={() => navigate('/community/write')}
+        />
+      </S.BtnWrap>
       <S.ItemWrap>
         {dummyList.map((data, index) => {
           return (

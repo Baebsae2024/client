@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import LearningItem from '@/components/learning/LearningItem';
 import HeadItem from '@/components/main/HeadItem';
 import * as S from '@/styles/learning/LearningPageStyle';
@@ -28,7 +29,13 @@ const LearningPage = () => {
     <S.Container>
       <div>
         <HeadItem title="새로운 Tip" description="새로운 지식을 학습하세요!" />
-        <S.BtnWrap onClick={() => navigate('/learning/new')}>더보기</S.BtnWrap>
+        <S.BtnWrap>
+          <Button
+            idDisabled={false}
+            text="더보기"
+            onClick={() => navigate('/learning/new')}
+          />
+        </S.BtnWrap>
         <S.ItemWrap>
           {dummyList.map((data, index) => {
             return (
@@ -45,7 +52,13 @@ const LearningPage = () => {
       <hr />
       <div>
         <HeadItem title="내가 배운 Tip" description="나는 이런걸 학습했어요!" />
-        <S.BtnWrap onClick={() => navigate('/learning/my')}>더보기</S.BtnWrap>
+        <S.BtnWrap>
+          <Button
+            idDisabled={false}
+            text="더보기"
+            onClick={() => navigate('/learning/my')}
+          />
+        </S.BtnWrap>
         <S.ItemWrap>
           {dummyList.map((data, index) => {
             return (

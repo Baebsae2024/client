@@ -19,7 +19,7 @@ const CommunityItem = ({
         <h2>{content}</h2>
       </S.LeftWrap>
       <S.RightWrap>
-        <HeartFillIcon />
+        <HeartFillIcon width={35} height={35} />
         <p>{heartLength}</p>
       </S.RightWrap>
     </S.Container>
