@@ -3,58 +3,59 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 78px;
 
-  > hr {
-    margin: 101px 0;
-    width: 1336px;
-    border: 1.5px dashed #588c83;
+  > h1 {
+    text-align: center;
+    font: var(--B35);
+    color: #000;
+    margin-bottom: 20px;
   }
 `;
 
-export const SwipeWrap = styled.div`
+export const SelectedNav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 578px;
-  background-color: #fff;
-  gap: 456px;
-  margin-top: 48px;
-  margin-bottom: 120px;
-`;
+  margin-bottom: 5px;
 
-export const LeftWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  > h1 {
-    font: var(--E40);
-    color: #000000;
-    width: 344px;
-  }
-
-  > div {
-    font: var(--E20);
-    color: #fff;
-    background-color: #69b0b5;
-    width: 171px;
-    height: 54px;
-    box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
+  > span {
+    font: var(--M28);
+    color: #000;
+    margin-top: 7px;
   }
 `;
 
-export const RightWrap = styled.div`
-  width: 568px;
-  height: 396px;
-  border-radius: 20px;
-  background-color: #d9d9d9;
+export const MenuText = styled.h3<{ selected: boolean }>`
+  font: var(--M28);
+  color: ${({ selected }) => (selected ? '#619092' : '#000')};
+  cursor: pointer;
+  margin: 0 14px;
 `;
 
-export const CommunityWrap = styled.div`
-  display: flex;
-  gap: 35px;
+export const TextBox = styled.div`
+  margin-top: 55px;
+  border: 3px solid #c0e0e2;
+  width: 1012px;
+  box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
+  padding: 42px 42px 40px 42px;
+
+  > h2 {
+    text-align: center;
+    font: var(--M32);
+    color: #000;
+    margin-bottom: 30px;
+  }
+
+  > p {
+    font: var(--M26-50);
+    padding: 32px 0;
+    color: #000;
+  }
+
+  > img {
+    height: 371px;
+    width: 100%;
+    background-color: #d9d9d9;
+  }
 `;

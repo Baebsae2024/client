@@ -1,82 +1,62 @@
-import BackDrop from '@/components/layout/BackDrop';
-import CommunityItem from '@/components/main/CommunityItem';
-import HeadItem from '@/components/main/HeadItem';
-import TodolistModal from '@/components/modal/TodolistModal';
-import TodolistItem from '@/components/todolist/TodolistItem';
 import * as S from '@/styles/main/MainPageStyle';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import LongLine from '@assets/icons/LongLine.svg?react';
 
 const MainPage = () => {
-  const navigate = useNavigate();
-  const [isModal, setIsModal] = useState(false);
-  const dummyData = [
-    {
-      id: 1,
-      title: '짜장면을 먹다가 단무지를 씹었는데 혀도 같이 씹어버림...',
-      heartLength: 10,
-    },
-    {
-      id: 2,
-      title:
-        '짜장면을 먹다가 단무지를 씹었는데짜장면을 먹다가 단무지를 씹었는데 혀도 같이 씹어버림...',
-      heartLength: 133,
-    },
-    {
-      id: 3,
-      title: '짜장면을 먹다가 단무지를 씹었는데 혀도 같이 씹어버림...',
-      heartLength: 1,
-    },
+  const [selectedMenu, setSelectedMenu] = useState('비자 발급');
+  const [information, setInformation] = useState({
+    content: '',
+    image: '',
+  });
+
+  const menuItems = [
+    '비자 발급',
+    '입국 신고',
+    '외국인 등록',
+    '건강 보험 가입',
+    '주거지 신고',
+    '세금 관련 등록',
   ];
 
+  const dummyData = {
+    content:
+      '지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?',
+    image: '',
+  };
+
+  useEffect(() => {
+    setInformation(dummyData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedMenu]);
+
+  const groupedMenuItems = [menuItems.slice(0, 3), menuItems.slice(3)];
+
   return (
-    <>
-      <S.Container>
-        <S.SwipeWrap>
-          <S.LeftWrap>
-            {/* 스와이프 수정 예정 */}
-            <h1>지하철에서 이런짓을 하면 민폐?</h1>
-            <div>자세히 보기</div>
-          </S.LeftWrap>
-          <S.RightWrap></S.RightWrap>
-        </S.SwipeWrap>
-        <HeadItem
-          title="커뮤니티"
-          description="당신과 마음에 맞는 친구를 만나보세요!"
-        />
-        <S.CommunityWrap>
-          {dummyData.map((data, index) => {
-            return (
-              <CommunityItem
-                key={index}
-                title={data.title}
-                heartLength={data.heartLength}
-              />
-            );
-          })}
-        </S.CommunityWrap>
-        <hr />
-        <HeadItem
-          title="투두리스트"
-          description="꾸준히 하면 좋은 일이 생길지도..?"
-        />
-        <TodolistItem setIsModal={setIsModal} />
-      </S.Container>
-      {isModal && (
-        <BackDrop
-          children={
-            <TodolistModal
-              onClick={() => {
-                setIsModal(false);
-                navigate('/community/write');
-              }}
-              onCancel={() => setIsModal(false)}
-            />
-          }
-          isOpen={isModal}
-        />
-      )}
-    </>
+    <S.Container>
+      <h1>행정 절차</h1>
+      {groupedMenuItems.map((group, groupIndex) => (
+        <S.SelectedNav key={groupIndex}>
+          {group.map((item, index) => (
+            <>
+              <S.MenuText
+                key={item}
+                onClick={() => setSelectedMenu(item)}
+                selected={selectedMenu === item}
+              >
+                {item}
+              </S.MenuText>
+              {index < group.length - 1 && <span>|</span>}
+            </>
+          ))}
+        </S.SelectedNav>
+      ))}
+      <S.TextBox>
+        <h2>{selectedMenu} 방법</h2>
+        <LongLine />
+        <p>{information.content}</p>
+        <img src={information.image} alt="" />
+      </S.TextBox>
+    </S.Container>
   );
 };
 

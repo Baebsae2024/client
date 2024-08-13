@@ -1,29 +1,30 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
-  --E100: 800 100px / normal Pretendard;
-  --E80: 800 80px / normal Pretendard;
-  --E25: 800 25px / normal Pretendard;
-  --E30: 800 30px / normal Pretendard;
-  --E40: 800 40px / normal Pretendard;
-  --E35: 800 35px / normal Pretendard;
-  --B33: 700 33px / 50px Pretendard;
-  --S23: 600 23px / normal Pretendard;
-  --B25: 700 25px / normal Pretendard;
-  --S30: 600 30px / normal Pretendard;
-  --M25: 500 25px / normal Pretendard;
-  --M30: 500 30px / normal Pretendard;
-  --M30-1: 500 30px / 45px Pretendard;
-  --M35: 500 35px / normal Pretendard;
-  --M20: 500 20px / normal Pretendard;
-  --M32: 500 32px / normal Pretendard;
-  --E20: 800 20px / normal Pretendard;
-  --E23: 800 23px / normal Pretendard;
-  --S32: 600 32px / normal Pretendard;
-  --E20: 800 20px / normal Pretendard;
-  --R20: 400 20px / normal Pretendard;
-  --E28: 800 28px / normal Pretendard;
-  --M23-1: 500 23px / 34px Pretendard;
+  --M15: 500 15px / normal GmarketSansMedium;
+  --M20: 500 20px / normal GmarketSansMedium;
+  --M22-22: 500 22px / 22px GmarketSansMedium;
+  --M26-50: 500 26px / 50px GmarketSansMedium;
+  --M28: 500 28px / normal GmarketSansMedium;
+  --M32: 500 32px / normal GmarketSansMedium;
+  --B20: 700 20px / normal GmarketSansBold;
+  --B22: 700 22px / normal GmarketSansBold;
+  --B28: 700 28px / normal GmarketSansBold;
+  --B35: 700 35px / normal GmarketSansBold;
 }
 
 html,
@@ -120,11 +121,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(192, 224, 226, 0.3) 0%,
-    rgba(227, 237, 224, 0.3) 100%
-  );
+  background: #fff;
   background-repeat: no-repeat;
   font-size: 100%;
 }
@@ -132,7 +129,7 @@ body {
 html,
 body {
   overflow-x: hidden;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'GmarketSansMedium', sans-serif;
 }
 
 input {

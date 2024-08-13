@@ -1,6 +1,6 @@
 import useMediaQuery from './useMediaQuery';
 
-export default function useNSMediaQuery() {
+export default function useYMediaQuery() {
   const isDesktop = useMediaQuery({ minWidth: 1210 });
   const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1209 });
   const isMobile = useMediaQuery({ maxWidth: 799 });

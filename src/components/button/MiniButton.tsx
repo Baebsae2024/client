@@ -1,6 +1,6 @@
-import { ButtonWrap } from '@/styles/button/ButtonStyle';
+import { Button } from '@/styles/button/MiniButtonStyle';
 
-const Button = ({
+const MiniButton = ({
   idDisabled,
   text,
   onClick,
@@ -11,10 +11,10 @@ const Button = ({
   onClick: () => void;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
-    <ButtonWrap {...props} onClick={onClick} disabled={idDisabled}>
+    <Button {...props} onClick={onClick} disabled={idDisabled}>
       {text}
-    </ButtonWrap>
+    </Button>
   );
 };
 
-export default Button;
+export default MiniButton;
