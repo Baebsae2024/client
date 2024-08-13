@@ -1,6 +1,5 @@
 import * as S from '@/styles/documents/DocumentsPageStyle';
 import BigLongLine from '@assets/icons/BigLongLine.svg?react';
-import ShortLine from '@assets/icons/ShortLine.svg?react';
 import ImageIcon from '@assets/icons/Image.svg?react';
 import BigButton from '@/components/button/BigButton';
 import MiniButton from '@/components/button/MiniButton';
@@ -108,32 +107,14 @@ const DocumentsPage = () => {
         <BigLongLine style={{ marginTop: 65, marginBottom: 65 }} />
         <div ref={resultWrapRef}>
           <S.ResultText>AI 분석 결과</S.ResultText>
-          <S.ResultWrap>
-            <S.TextBox>
-              <h2>문서에 대한 설명</h2>
-              <ShortLine />
-              <p>
-                지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-                이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민
-              </p>
-            </S.TextBox>
-            <S.TextBox>
-              <h2>주의 사항</h2>
-              <ShortLine />
-              <p>
-                지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-                이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-                민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민
-              </p>
-            </S.TextBox>
-          </S.ResultWrap>
+          <S.TextBox>
+            지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런
+            행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
+            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
+            이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
+            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
+            이런 행동 민
+          </S.TextBox>
         </div>
       </S.Container>
       {isModal && (

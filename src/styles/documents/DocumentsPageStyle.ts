@@ -53,30 +53,15 @@ export const ResultText = styled.h1`
   margin-bottom: 38px;
 `;
 
-export const ResultWrap = styled.div`
-  display: flex;
-  gap: 38px;
-`;
-
 export const TextBox = styled.div`
   border: 3px solid #c0e0e2;
-  width: 500px;
+  width: 1037px;
   box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 36px 34px 34px 34px;
-
-  > h2 {
-    text-align: center;
-    font: var(--M28);
-    color: #000;
-    margin-bottom: 30px;
-  }
-
-  > p {
-    font: var(--M26-50);
-    padding: 32px 0 0;
-    color: #000;
-  }
+  justify-content: center;
+  font: var(--M26-50);
+  padding: 34px;
+  color: #000;
 `;
