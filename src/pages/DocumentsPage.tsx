@@ -12,7 +12,7 @@ import ReactMarkdown from 'react-markdown';
 const DocumentsPage = () => {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const resultWrapRef = useRef<HTMLDivElement | null>(null);
-  const [language, setLanguage] = useState('한국어');
+  //const [language, setLanguage] = useState('한국어');
   const [image, setImage] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [isModal, setIsModal] = useState(false);
@@ -81,7 +81,7 @@ const DocumentsPage = () => {
           onChange={handleFileChange}
         />
         {image ? <img src={image} alt="" /> : <S.NoneImage></S.NoneImage>}
-        <S.LanguageWrap>
+        {/* <S.LanguageWrap>
           <span
             onClick={() => setLanguage('한국어')}
             style={{
@@ -101,7 +101,7 @@ const DocumentsPage = () => {
           >
             English
           </span>
-        </S.LanguageWrap>
+        </S.LanguageWrap> */}
         <MiniButton
           idDisabled={!image}
           text="AI 분석하기"
