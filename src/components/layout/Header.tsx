@@ -44,12 +44,7 @@ const Header = () => {
                   <S.HamNavLinks to="/">행정 절차</S.HamNavLinks>
                   <S.HamNavLinks to="/warnings">주의사항</S.HamNavLinks>
                   <S.HamNavLinks to="/documents">문서 확인</S.HamNavLinks>
-                  <BigButton
-                    idDisabled={false}
-                    Icon={<MoneyIcon />}
-                    text="예상 지원금 찾기"
-                    onClick={() => navigate('/support')}
-                  />
+                  <S.HamNavLinks to="/support">예상 지원금 찾기</S.HamNavLinks>
                 </S.HamNav>
               }
               isOpen={isViewHamItem}

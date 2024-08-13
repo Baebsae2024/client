@@ -61,7 +61,7 @@ export const HamNav = styled.div`
   ${isMobile} {
     width: 200px;
     gap: 50px;
-    padding-left: 40px;
+    padding-left: 25px;
   }
 
   ${isTablet} {
