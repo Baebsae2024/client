@@ -1,3 +1,4 @@
+import { isMobileOrTablet } from '@/hooks/Media';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -41,11 +42,28 @@ export const TextBox = styled.div`
   box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);
   padding: 42px 42px 40px 42px;
 
+  ${isMobileOrTablet} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    padding: 42px 32px 40px 32px;
+
+    > svg {
+      display: none;
+    }
+  }
+
   > h2 {
     text-align: center;
     font: var(--M32-600);
     color: #000;
     margin-bottom: 30px;
+
+    ${isMobileOrTablet} {
+      margin-bottom: 10px;
+    }
   }
 
   > p {

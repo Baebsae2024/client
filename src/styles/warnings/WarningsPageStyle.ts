@@ -1,3 +1,4 @@
+import { isMobileOrTablet } from '@/hooks/Media';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -26,4 +27,9 @@ export const ItemWrap = styled.div`
   display: grid;
   gap: 28px;
   grid-template-columns: repeat(3, 1fr);
+
+  ${isMobileOrTablet} {
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

@@ -1,3 +1,4 @@
+import { isMobileOrTablet } from '@/hooks/Media';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -6,6 +7,12 @@ export const Container = styled.div`
   align-items: center;
   padding-top: 78px;
   padding-bottom: 115px;
+
+  ${isMobileOrTablet} {
+    > svg {
+      display: none;
+    }
+  }
 
   > h1 {
     text-align: center;
@@ -18,6 +25,7 @@ export const Container = styled.div`
     text-align: center;
     font: var(--M28);
     color: #000;
+    margin-bottom: 65px;
   }
 `;
 
@@ -25,4 +33,9 @@ export const GridWrap = styled.div`
   display: grid;
   gap: 28px;
   grid-template-columns: repeat(3, 1fr);
+
+  ${isMobileOrTablet} {
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

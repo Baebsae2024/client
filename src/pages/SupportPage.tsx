@@ -16,7 +16,7 @@ type QuestionRadioProps = {
 const SupportPage = () => {
   const navigate = useNavigate();
   const [age, setAge] = useState(''); //나이
-  const [isForeigner, setIsForeigner] = useState(false); //외국인 true, 내국인 false
+  const [isForeigner, setIsForeigner] = useState(true); //외국인 true, 내국인 false
   const [job, setJob] = useState(''); //직업
   const [isMarried, setIsMarried] = useState(false); //결혼 여부
   const [haveChildren, setHaveChildren] = useState(false); //자녀 여부
