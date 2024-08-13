@@ -42,7 +42,7 @@ const CommunityWritePage = () => {
       console.log(imageFile);
     }
 
-    //성공하면 페이지이동
+    //성공하면 페이지 이동
     navigate('/community');
   };
 

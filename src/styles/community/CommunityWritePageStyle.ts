@@ -68,7 +68,7 @@ export const TextWrap = styled.div`
   > textarea {
     border-radius: 30px;
     padding: 32px 36px;
-    font: var(--M30);
+    font: var(--M30-1);
     border: none;
     height: 620px;
     box-shadow: 0px 0px 20px rgba(192, 224, 226, 0.5);

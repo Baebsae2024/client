@@ -13,6 +13,7 @@
   --S30: 600 30px / normal Pretendard;
   --M25: 500 25px / normal Pretendard;
   --M30: 500 30px / normal Pretendard;
+  --M30-1: 500 30px / 45px Pretendard;
   --M35: 500 35px / normal Pretendard;
   --M20: 500 20px / normal Pretendard;
   --M32: 500 32px / normal Pretendard;
@@ -20,6 +21,9 @@
   --E23: 800 23px / normal Pretendard;
   --S32: 600 32px / normal Pretendard;
   --E20: 800 20px / normal Pretendard;
+  --R20: 400 20px / normal Pretendard;
+  --E28: 800 28px / normal Pretendard;
+  --M23-1: 500 23px / 34px Pretendard;
 }
 
 html,
