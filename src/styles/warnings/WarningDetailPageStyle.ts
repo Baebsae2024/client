@@ -46,6 +46,7 @@ export const TextBox = styled.div`
     font: var(--M26-50);
     padding-top: 20px;
     color: #000;
+    white-space: pre-line;
   }
 
   > img {

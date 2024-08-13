@@ -49,7 +49,9 @@ const SupportPage = () => {
     </>
   );
 
-  const handleResult = () => {
+  const handleResult = async () => {
+    //const response = await postSupport();
+    console.log();
     navigate('/support/result');
   };
 
@@ -59,7 +61,11 @@ const SupportPage = () => {
       <p>질문에 답하고 지원금을 추천받으세요!</p>
       <BigLongLine style={{ marginTop: 65, marginBottom: 65 }} />
       <h2>Q1. 나이가 어떻게 되시나요?</h2>
-      <input value={age} onChange={event => setAge(event.target.value)} />
+      <input
+        value={age}
+        onChange={event => setAge(event.target.value)}
+        placeholder="나이를 작성해주세요"
+      />
       <QuestionRadio
         question="Q2. 귀하는 내국인인가요? 외국인인가요?"
         selectedValue={isForeigner}
@@ -70,7 +76,11 @@ const SupportPage = () => {
         ]}
       />
       <h2>Q3. 현재 직업은 무엇인가요?</h2>
-      <input value={job} onChange={event => setJob(event.target.value)} />
+      <input
+        value={job}
+        onChange={event => setJob(event.target.value)}
+        placeholder="직업을 작성해주세요"
+      />
       <QuestionRadio
         question="Q4. 결혼하셨나요?"
         selectedValue={isMarried}
@@ -95,11 +105,13 @@ const SupportPage = () => {
           <input
             value={numberOfChildren}
             onChange={event => setNumberOfChildren(event.target.value)}
+            placeholder="자녀 수를 작성해주세요"
           />
           <h2>Q7. 자녀의 나이는 어떻게 되나요?</h2>
           <input
             value={childrenAges}
             onChange={event => setChildrenAges(event.target.value)}
+            placeholder="자녀의 나이를 작성해주세요"
           />
         </>
       )}
@@ -107,6 +119,7 @@ const SupportPage = () => {
       <input
         value={monthlyIncome}
         onChange={event => setMonthlyIncome(event.target.value)}
+        placeholder="월 소득을 작성해주세요"
       />
       <QuestionRadio
         question="Q9. 유공자이신가요?"

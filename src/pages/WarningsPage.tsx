@@ -52,13 +52,21 @@ const WarningsPage = () => {
   const [list, setList] = useState<WarningList[]>([]);
 
   useEffect(() => {
+    // const fetchInformation = async () => {
+    //   const response = await getGovern();
+    //   if (response) {
+    //     setList(dummyList);
+    //   }
+    // };
+
+    // fetchInformation();
     setList(dummyList);
   }, []);
 
   return (
     <S.Container>
       <h1>주의사항</h1>
-      <p>2024년 주의해야 할 사기 수법</p>
+      <p>한국에서 이런 점을 조심해야 해요!</p>
       <S.ItemWrap>
         {list.map((data, index) => {
           return (

@@ -3,17 +3,19 @@ import BigLongLine from '@assets/icons/BigLongLine.svg?react';
 import ImageIcon from '@assets/icons/Image.svg?react';
 import BigButton from '@/components/button/BigButton';
 import MiniButton from '@/components/button/MiniButton';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BackDrop from '@/components/layout/BackDrop';
 import { HashLoader } from 'react-spinners';
+import { postImage } from '@/apis/postImage';
 
 const DocumentsPage = () => {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const resultWrapRef = useRef<HTMLDivElement | null>(null);
   const [language, setLanguage] = useState('한국어');
-  const [profileImage, setProfileImage] = useState('');
-  const [profileImageFile, setProfileImageFile] = useState<File | null>(null);
+  const [image, setImage] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [isModal, setIsModal] = useState(false);
+  const [result, setResult] = useState('');
 
   const onAddPicture = () => {
     inputFileRef.current?.click();
@@ -25,23 +27,33 @@ const DocumentsPage = () => {
       return;
     }
 
+    setResult('');
     const file = e.target.files[0];
     const imageUrl = URL.createObjectURL(file);
-    setProfileImageFile(file);
-    setProfileImage(imageUrl);
+    setImageFile(file);
+    setImage(imageUrl);
   };
 
-  const handleImageAI = () => {
-    console.log(profileImageFile);
+  const handleImageAI = async () => {
     setIsModal(true);
-
-    setTimeout(() => {
+    const response = await postImage({ image: imageFile });
+    if (response.message) {
       setIsModal(false);
-      scrollToResult();
-    }, 2000);
-
-    //분석 끝나면 setIsModal(false);
+      //수정 필요
+      setResult(`지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런
+            행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
+            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
+            이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
+            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
+            이런 행동 민`);
+    }
   };
+
+  useEffect(() => {
+    if (result) {
+      scrollToResult();
+    }
+  }, [result]);
 
   const scrollToResult = () => {
     if (resultWrapRef.current) {
@@ -73,11 +85,7 @@ const DocumentsPage = () => {
           ref={inputFileRef}
           onChange={handleFileChange}
         />
-        {profileImage ? (
-          <img src={profileImage} alt="" />
-        ) : (
-          <S.NoneImage></S.NoneImage>
-        )}
+        {image ? <img src={image} alt="" /> : <S.NoneImage></S.NoneImage>}
         <S.LanguageWrap>
           <span
             onClick={() => setLanguage('한국어')}
@@ -100,22 +108,19 @@ const DocumentsPage = () => {
           </span>
         </S.LanguageWrap>
         <MiniButton
-          idDisabled={!profileImage}
+          idDisabled={!image}
           text="AI 분석하기"
           onClick={handleImageAI}
         />
-        <BigLongLine style={{ marginTop: 65, marginBottom: 65 }} />
-        <div ref={resultWrapRef}>
-          <S.ResultText>AI 분석 결과</S.ResultText>
-          <S.TextBox>
-            지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런
-            행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-            이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동
-            민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서
-            이런 행동 민
-          </S.TextBox>
-        </div>
+        {result && (
+          <>
+            <BigLongLine style={{ marginTop: 65, marginBottom: 65 }} />
+            <div ref={resultWrapRef}>
+              <S.ResultText>AI 분석 결과</S.ResultText>
+              <S.TextBox>{result}</S.TextBox>
+            </div>
+          </>
+        )}
       </S.Container>
       {isModal && (
         <BackDrop

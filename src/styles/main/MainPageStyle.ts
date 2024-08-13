@@ -58,6 +58,6 @@ export const TextBox = styled.div`
   > img {
     display: block;
     margin: auto;
-    height: 371px;
+    width: 100%;
   }
 `;

@@ -3,9 +3,13 @@ import * as S from '@/styles/warnings/WarningDetailPageStyle';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LongLine from '@assets/icons/LongLine.svg?react';
+import { useParams } from 'react-router-dom';
 
 const WarningDetailPage = () => {
   const navigate = useNavigate();
+  const params = useParams();
+
+  console.log(params.id);
 
   const [data, setData] = useState({
     image: '',
@@ -14,6 +18,17 @@ const WarningDetailPage = () => {
   });
 
   useEffect(() => {
+    // const fetchInformation = async () => {
+    //   console.log(params.id);
+    //   const response = await getGovern({
+    //     id: params.id,
+    //   });
+    //   if (response) {
+    //     setData(response);
+    //   }
+    // };
+    // fetchInformation();
+
     setData({
       image: '',
       title: '무섭다 무서워 ㄷㄷㄷㄷ 귀신이 나왔어~',

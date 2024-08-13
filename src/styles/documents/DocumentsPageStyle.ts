@@ -64,4 +64,5 @@ export const TextBox = styled.div`
   font: var(--M26-50);
   padding: 34px;
   color: #000;
+  white-space: pre-line;
 `;
