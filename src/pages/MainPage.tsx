@@ -1,12 +1,7 @@
 import * as S from '@/styles/main/MainPageStyle';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LongLine from '@assets/icons/LongLine.svg?react';
-
-const dummyData = {
-  content:
-    '지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?지하철에서 이런 행동 민폐?',
-  image: '',
-};
+import { getGovern } from '@/apis/getGovern';
 
 const MainPage = () => {
   const [selectedMenu, setSelectedMenu] = useState('비자 발급');
@@ -25,7 +20,17 @@ const MainPage = () => {
   ];
 
   useEffect(() => {
-    setInformation(dummyData);
+    const fetchInformation = async () => {
+      const response = await getGovern({
+        title: selectedMenu.replace(/\s+/g, ''),
+      });
+      setInformation({
+        content: response[0].body,
+        image: response[0].img,
+      });
+    };
+
+    fetchInformation();
   }, [selectedMenu]);
 
   const groupedMenuItems = [menuItems.slice(0, 3), menuItems.slice(3)];
@@ -36,16 +41,15 @@ const MainPage = () => {
       {groupedMenuItems.map((group, groupIndex) => (
         <S.SelectedNav key={groupIndex}>
           {group.map((item, index) => (
-            <>
+            <React.Fragment key={index}>
               <S.MenuText
-                key={item}
                 onClick={() => setSelectedMenu(item)}
                 selected={selectedMenu === item}
               >
                 {item}
               </S.MenuText>
               {index < group.length - 1 && <span>|</span>}
-            </>
+            </React.Fragment>
           ))}
         </S.SelectedNav>
       ))}

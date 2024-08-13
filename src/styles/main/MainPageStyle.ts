@@ -52,13 +52,12 @@ export const TextBox = styled.div`
     font: var(--M26-50);
     padding: 32px 0;
     color: #000;
+    white-space: pre-line;
   }
 
   > img {
     display: block;
     margin: auto;
     height: 371px;
-    width: 100%;
-    background-color: #d9d9d9;
   }
 `;
